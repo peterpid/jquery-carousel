@@ -4,11 +4,10 @@
 
 body {
   text-align: center;
+  font-size: 16px;
 }
 
 #carousel {
-  align: middle;
-  text-align: center;
   border: 2px solid #777;
   margin: 0 auto;
   padding: 0;
@@ -24,11 +23,10 @@ body {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  display: block;
+  display: inline-block;
 }
 
 #carousel ul li {
-  display: inline-block;
   width: 800px;
   height: 500px;
   float: left;
@@ -37,5 +35,47 @@ body {
 #carousel ul li img {
   width: 100%;
   height: 100%;
+  opacity: unset;
+}
+
+#carousel #nav-arrows {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  position: absolute;
+}
+
+#carousel #nav-arrows div {
+  position: relative;
+  top: -280px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#carousel #nav-arrows div i {
+  border: solid #777;
+  border-width: 0 10px 10px 0;
+  display: inline-block;
+  margin: 20px;
+  height: 40px;
+  width: 40px;
+}
+
+#btn-left {
+  left: 0;
+}
+
+#btn-right {
+  left: 636px;
+}
+
+.arrow-left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.arrow-right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 /*# sourceMappingURL=style.css.map */
