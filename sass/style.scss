@@ -34,7 +34,6 @@ body {
 		display: inline-block;
 
 		li {
-			//display: inline-block;
 			width: $image-width;
 			height: $image-height;
 			float: left;
@@ -42,7 +41,6 @@ body {
 			img {
 				width: 100%;
 				height: 100%;
-				//display: inline-block;
 				opacity: unset;
 			}
 		}
@@ -50,13 +48,11 @@ body {
 	#nav-arrows{
 		margin: 0;
 		padding: 0;
-		background-color: lightblue;
 		position: absolute;
 
 		div {
 			position: relative;
 		  	top: -0.5*($image-height + $nav-arrow-size + $nav-arrow-margin);
-			//border: solid 1px black;
 			display: inline-block;
 			cursor: pointer;
 
