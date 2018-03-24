@@ -25,14 +25,13 @@ body {
   padding: 0;
   list-style-type: none;
   display: block;
-  float: left;
 }
 
 #carousel ul li {
   display: inline-block;
   width: 800px;
   height: 500px;
-  list-style: none;
+  float: left;
 }
 
 #carousel ul li img {
