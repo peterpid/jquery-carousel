@@ -5,22 +5,26 @@ $(function(){
 	var imageHeight = 500;
 	var imageWidth  = 800;
 	var animationIntervalMs = 3000;
+	var animationDurationMs = 500;
 	var carouselList = $('#carousel ul');
 	var direction = 'left';
 	var intervalId = setInterval(changeSlide, animationIntervalMs);
+	var currentImgIdx= 0;
+	var carouselSize = 5;
 
 	function changeSlide() {
 		if (direction === 'left') {
-			carouselList.animate({'marginLeft':-1*imageWidth}, 500, moveFirstSlide);
+			carouselList.animate({'marginLeft':-1*imageWidth}, animationDurationMs, moveSlide);
 		} else if (direction === 'right') {
-			carouselList.animate({'marginLeft':imageWidth}, 500, moveFirstSlide);
+			carouselList.animate({'marginLeft':imageWidth}, animationDurationMs, moveSlide);
 		}
 	}
 
-	function moveFirstSlide() {
+	function moveSlide() {
 		var firstItem = carouselList.find('li:first');
 		var lastItem = carouselList.find('li:last');
-		console.log('moveFirstSlide: ' + direction);
+		updateCurrentImage();
+		console.log('moveSlide: ' + direction + ', current: ' + Number(currentImgIdx + 1));
 
 		if (direction === 'left') {
 			lastItem.after(firstItem);
@@ -28,6 +32,26 @@ $(function(){
 			lastItem.insertBefore(firstItem);
 		}
 		carouselList.css({'marginLeft':0});
+	}
+
+	function updateCurrentImage() {
+
+		var imgIndicators = $('#current-img-indicator div i');
+
+		if (direction === 'left') {
+			currentImgIdx= (currentImgIdx >= carouselSize-1) ? 0: currentImgIdx+ 1;
+		} else {
+			currentImgIdx = (currentImgIdx > 0) ? currentImgIdx- 1: carouselSize - 1;
+		}
+		$.each(imgIndicators, function(index, value) {
+			if (index == (currentImgIdx)){
+				$( this ).addClass('img-current');
+				$( this ).removeClass('img-other');
+			} else {
+				$( this ).addClass('img-other');
+				$( this ).addClass('img-current');
+			}
+		});
 	}
 
 	var buttonLeft = $('#btn-left');

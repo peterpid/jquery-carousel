@@ -6,6 +6,8 @@ $nav-arrow-color: #777;
 $nav-arrow-size: 40px;
 $nav-arrow-margin: 20px;
 $nav-arrow-thickness: $nav-arrow-size / 4;
+$image-indicator-color: #777;
+$image-indicator-size: 30px;
 
 * {
   box-sizing: border-box;
@@ -65,6 +67,37 @@ body {
 			}
 		}
 	}
+	#current-img-indicator {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		text-align: center;
+		div {
+			position: relative;
+			top: -60px;
+			display: inline-block;
+			cursor: pointer;
+			padding: 10px;
+			i {
+				display: inline-block;
+				border-style: solid;
+				border-color: $image-indicator-color;
+				border-radius: 50%;
+				height: $image-indicator-size;
+				width: $image-indicator-size;
+				padding: 0;
+
+			}
+		}
+	}
+}
+
+.img-current {
+	border-width: $image-indicator-size/2;
+}
+
+.img-other {
+	border-width: 2px;
 }
 
 #btn-left {

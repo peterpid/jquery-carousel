@@ -59,6 +59,39 @@ body {
   width: 40px;
 }
 
+#carousel #current-img-indicator {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+
+#carousel #current-img-indicator div {
+  position: relative;
+  top: -60px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#carousel #current-img-indicator div i {
+  display: inline-block;
+  border-style: solid;
+  border-color: #777;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+}
+
+.img-current {
+  border-width: 15px;
+}
+
+.img-other {
+  border-width: 2px;
+}
+
 #btn-left {
   left: 0;
 }
