@@ -7,16 +7,16 @@ $(function(){
 	var animationIntervalMs = 3000;
 	var animationDurationMs = 500;
 	var carouselList = $('#carousel ul');
-	var direction = 'left';
+	var direction = 'right';
 	var intervalId = setInterval(changeSlide, animationIntervalMs);
 	var currentImgIdx= 0;
 	var carouselSize = 5;
 
 	function changeSlide() {
 		if (direction === 'left') {
-			carouselList.animate({'marginLeft':-1*imageWidth}, animationDurationMs, moveSlide);
-		} else if (direction === 'right') {
 			carouselList.animate({'marginLeft':imageWidth}, animationDurationMs, moveSlide);
+		} else if (direction === 'right') {
+			carouselList.animate({'marginLeft':-1*imageWidth}, animationDurationMs, moveSlide);
 		}
 	}
 
@@ -27,9 +27,9 @@ $(function(){
 		console.log('moveSlide: ' + direction + ', current: ' + Number(currentImgIdx + 1));
 
 		if (direction === 'left') {
-			lastItem.after(firstItem);
-		} else {
 			lastItem.insertBefore(firstItem);
+		} else {
+			lastItem.after(firstItem);
 		}
 		carouselList.css({'marginLeft':0});
 	}
@@ -39,9 +39,9 @@ $(function(){
 		var imgIndicators = $('#current-img-indicator div i');
 
 		if (direction === 'left') {
-			currentImgIdx= (currentImgIdx >= carouselSize-1) ? 0: currentImgIdx+ 1;
-		} else {
 			currentImgIdx = (currentImgIdx > 0) ? currentImgIdx- 1: carouselSize - 1;
+		} else {
+			currentImgIdx= (currentImgIdx >= carouselSize-1) ? 0: currentImgIdx+ 1;
 		}
 		$.each(imgIndicators, function(index, value) {
 			if (index == (currentImgIdx)){
